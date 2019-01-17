@@ -1,0 +1,56 @@
+--
+-- CREATE TABLE Users (
+--    Users_id bigint not null primary key,
+--    First_name varchar(10) not null,
+--    Last_name varchar(10) not null ,
+--    password varchar(30)null null,
+--    Email varchar(50) not null,
+--    Mobile_number int,
+--    Gender varchar(5) not null,
+--    Address varchar(15),
+--    Is_delete BIT,
+--    Roles_id bigint
+--    );
+--
+-- CREATE TABLE Roles(
+-- Roles_id bigint not null primary key ,
+-- Name varchar(10) not null,
+-- Is_delete BIT
+-- );
+--
+--  ALTER TABLE Users
+--  ADD FOREIGN KEY (Roles_id) REFERENCES Roles(Roles_id);
+--
+--
+-- CREATE TABLE  Events  (
+-- Event_id bigint not null primary key ,
+-- Event_name varchar(30) not null,
+-- City varchar(15) not null,
+-- Description varchar(250),
+-- Capacity int not null,
+-- ETime time not null,
+-- EDate  date not null,
+-- Deleting BIT not null ,
+-- Approved BIT,
+-- Users_id bigint
+-- );
+--
+--
+-- CREATE TABLE Tickets (
+-- Ticket_id bigint not null primary key AUTO_INCREMENT,
+-- Is_delete BIT ,
+-- Event_id bigint,
+-- Users_id bigint
+-- );
+--
+-- ALTER TABLE Tickets  ADD FOREIGN KEY (Event_id) REFERENCES Events(Event_id);
+-- ALTER TABLE Tickets  ADD FOREIGN KEY (Users_id) REFERENCES Users(Users_id);
+--
+-- CREATE TABLE Rate (
+-- Review_id bigint not null primary key,
+-- Comments varchar(500),
+-- Rate int not null,
+-- Is_delete BIT ,
+-- Ticket_id bigint
+-- );
+-- ALTER TABLE Rate  ADD FOREIGN KEY (Ticket_id) REFERENCES Tickets(Ticket_id);
