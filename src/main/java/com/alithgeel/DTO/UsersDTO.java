@@ -3,9 +3,6 @@ package com.alithgeel.DTO;
 import com.alithgeel.Entity.Roles;
 import org.hibernate.validator.constraints.Email;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -14,7 +11,7 @@ import javax.validation.constraints.Size;
 public class UsersDTO {
 
     @Id
-    private Long users_id;
+    private Long usersid;
 
     @NotNull(message = "The user name must not be Null")
     @Pattern(regexp = "[^\\s]+",message = "whitespace not accepted")
@@ -37,7 +34,7 @@ public class UsersDTO {
 
     @NotNull(message ="The  password must not be Null")
     @Pattern(regexp = "[^\\s]+",message = "whitespace not accepted")
-    @Pattern(regexp = "[a-zA-Z0-9]{8,20}",message = "password must be more than 8 digits and less than 20")
+//    @Pattern(regexp = "[a-zA-Z0-9]{8,20}",message = "password must be more than 8 digits and less than 20")
     @Size(min = 8,message = "password must be more than 8 digits and less than 20")
     private String password;
 
@@ -70,12 +67,12 @@ public class UsersDTO {
         this.enabled = enabled;
     }
 
-    public Long getUsers_id() {
-        return users_id;
+    public Long getUsersid() {
+        return usersid;
     }
 
-    public void setUsers_id(Long users_id) {
-        this.users_id = users_id;
+    public void setUsersid(Long usersid) {
+        this.usersid = usersid;
     }
 
     public String getRole() {

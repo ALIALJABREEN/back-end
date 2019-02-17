@@ -11,11 +11,10 @@ import javax.validation.constraints.Size;
 @Table(name="Users")
 public class Users {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Users_id")
-    private Long users_id;
+    private Long usersid;
 
 
     @Pattern(regexp = "[^\\s]+",message = "whitespace not accepted")
@@ -43,7 +42,7 @@ public class Users {
 
     @NotNull(message = "The First Name must not be Null")
     @Pattern(regexp = "[^\\s]+",message = "whitespace not accepted")
-    @Pattern(regexp = "[a-zA-Z0-9]{8,25}",message = "password must be more than 8 digits and less than 20")
+//    @Pattern(regexp = "[a-zA-Z0-9]{8,25}",message = "password must be more than 8 digits and less than 20")
     @Size(min = 8,message = "password must be more than 8 digits and less than 20")
     @Column(name = "password")
     private String password;
@@ -86,12 +85,12 @@ public class Users {
 
 
 
-    public Long getUsers_id() {
-        return users_id;
+    public Long getUsersid() {
+        return usersid;
     }
 
-    public void setUsers_id(Long users_id) {
-        this.users_id = users_id;
+    public void setUsersid(Long usersid) {
+        this.usersid = usersid;
     }
 
     public String getUserName() {

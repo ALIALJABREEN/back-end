@@ -7,7 +7,6 @@ import com.alithgeel.Repository.RolesRepository;
 import com.alithgeel.Repository.UsersRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -59,7 +58,7 @@ public class UsersServiceImp implements UsersService  {
             Users tempUsersEntity = usersRepository.findById(usersid).get();
             Users users=modelMapper.map(usersDTO,Users.class);
             users.setRolename(tempUsersEntity.getRolename());
-            users.setUsers_id(usersid);
+            users.setUsersid(usersid);
             String encoded =new BCryptPasswordEncoder().encode(users.getPassword());
             users.setPassword(encoded);
             users.setEnabled(true);
@@ -75,7 +74,7 @@ public class UsersServiceImp implements UsersService  {
     @Override
     public void deleteUsers(Long id) {
         Users user = usersRepository.findById(id).get();
-       user.setEnabled(false);
+        user.setEnabled(false);
         usersRepository.save(user);
     }
 
@@ -90,5 +89,15 @@ public class UsersServiceImp implements UsersService  {
         Users users = usersRepository.findByUserName(userName);
         UsersDTO usersDTO = modelMapper.map(users,UsersDTO.class);
         return usersDTO;
+    }
+
+    @Override
+    public boolean isUserIdEnable(Long userid) {
+        return usersRepository.existsByUsersidAndEnabledIsTrue(userid);
+    }
+
+    @Override
+    public boolean isUserNameEnabled(String userName) {
+        return usersRepository.existsByUserNameAndAndEnabledIsTrue(userName);
     }
 }

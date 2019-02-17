@@ -16,4 +16,6 @@ public interface UsersService {
     public void deleteUsers(Long id);
     public void enableUsers(Long id);
     public UsersDTO findByUserName(String userName);
+    boolean isUserIdEnable(Long userid);
+    boolean isUserNameEnabled(String userName);
 }
