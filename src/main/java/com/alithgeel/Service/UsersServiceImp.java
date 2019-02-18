@@ -36,6 +36,7 @@ public class UsersServiceImp implements UsersService  {
         return usersRepository.findById(id).get();
     }
 
+
     @Override
     public Users crateUsers(UsersDTO usersDTO) {
         if (!usersRepository.existsByUserName(usersDTO.getUserName())) {
