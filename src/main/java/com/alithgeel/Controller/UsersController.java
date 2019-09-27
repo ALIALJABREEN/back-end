@@ -26,6 +26,7 @@ public class UsersController {
     @RequestMapping(value = "/users")
    // @PreAuthorize("hasRole('ROLE_ADMIN')")
     public List<UsersDTO> all() {
+
         return usersService.getAllUsers();
     }
 

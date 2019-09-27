@@ -16,8 +16,6 @@ public interface CommentRepository extends CrudRepository<Comment,Long> {
     List<Comment> findByUsers(Users users);
 
     List<Comment> findAllByEventsAndDeletingIsFalse(Events events);
-
-
    Long countByEventsAndUsersAndLocalDateTimeIsAfter(Events events, Users users, LocalDateTime localDateTime);
 
 }

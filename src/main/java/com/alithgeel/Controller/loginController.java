@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 @RequestMapping
 public class loginController {
+
     @Autowired
     private UsersService usersService;
 
@@ -24,7 +24,7 @@ public class loginController {
             throw new RuntimeException("user name is wrong");
 
         }
-        UsersDTO usersDTO =usersService.findByUserName(login.getUserName());
+        UsersDTO usersDTO = usersService.findByUserName(login.getUserName());
         if (usersService.isUserIdEnable(usersDTO.getUsersid())&& new BCryptPasswordEncoder().matches(login.getPassword(),usersDTO.getPassword())){
             Map<String,Object>map=new HashMap<>();
             map.put("users_id",usersDTO.getUsersid());

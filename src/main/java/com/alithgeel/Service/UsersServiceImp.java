@@ -69,9 +69,6 @@ public class UsersServiceImp implements UsersService  {
 
     }
 
-
-
-
     @Override
     public void deleteUsers(Long id) {
         Users user = usersRepository.findById(id).get();

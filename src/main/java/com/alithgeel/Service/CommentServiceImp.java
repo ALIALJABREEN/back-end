@@ -27,8 +27,8 @@ public class CommentServiceImp implements CommentService{
 
         Users users = usersRepository.findById(users_id).get();
         Events events = eventsRepository.findById(event_id).get();
-
         LocalDateTime dateTime = LocalDateTime.now().minusSeconds(30);
+
         long count = commentRepository.countByEventsAndUsersAndLocalDateTimeIsAfter(events, users, dateTime);
         if (count == 0) {
             comment.setEvents(events);
@@ -49,7 +49,6 @@ public class CommentServiceImp implements CommentService{
 
     @Override
     public List<Comment> findAll() {
-
         return (List<Comment>) commentRepository.findAll();
     }
 }

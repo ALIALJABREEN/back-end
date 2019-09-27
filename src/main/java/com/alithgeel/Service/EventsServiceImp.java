@@ -53,7 +53,7 @@ public class EventsServiceImp implements EventsService {
 
     @Override
     public ResponseEntity creatEvents(EventsDTO eventsDTO,Long users_id) {
-        Date date=Date.valueOf(LocalDate.now().minusDays(1));
+        Date date = Date.valueOf(LocalDate.now().minusDays(1));
         if (eventsDTO.getDate().after(date)) {
             Events events = modelMapper.map(eventsDTO, Events.class);
             events.setUsers(usersRepository.findById(users_id).get());
@@ -137,10 +137,6 @@ public class EventsServiceImp implements EventsService {
         events.setApproved(false);
         eventsRepository.save(events);
     }
-
-
-
-
 
 
     @Override

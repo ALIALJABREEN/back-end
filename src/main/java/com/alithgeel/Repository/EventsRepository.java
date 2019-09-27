@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.sql.Date;
 import java.util.List;
 
-
 @Repository
 public interface EventsRepository extends JpaRepository<Events,Long> {
 
@@ -19,5 +18,4 @@ public interface EventsRepository extends JpaRepository<Events,Long> {
         List<Events> findByDateIn(Date date);
         List<Events> findByCityIgnoreCaseAndDateIn(String city ,Date date);
         List<Events> findByUsersAndDeletingIsFalse (Users users);
-
 }
